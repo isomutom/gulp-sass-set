@@ -1,0 +1,68 @@
+/* ---------------------------------------------------------------
+  unique css
+--------------------------------------------------------------- */
+//----------------------------------------------------------------
+//	unique css
+//----------------------------------------------------------------
+//　！！以下サンプルなので消してください！！
+$white:#fff;
+$black:#000;
+$green:#59c4c5;
+$blue:#2153fb;
+$red:#ac0018;
+
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
+//コメントを残したい時は、CSSと同じコメントの書き方です。
+/* ---------------------------------------------------------------
+  入れ子にした状態でCSS用コメントを書くと出力がおかしくなります。
+  入れ子の場合はSass用コメントを推奨します。
+--------------------------------------------------------------- */
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $black;
+
+  // ====Media Queries====
+  @include breakpoint(pc){
+    background: $white;
+  }
+
+  @include breakpoint(tab){
+    background: $blue;
+  }
+
+  @include breakpoint(800px){
+    background: $red;
+  }
+  // ====Media Queries====
+
+  h1{
+    font-size: 42px;
+    color: $white;
+
+    // ====Media Queries====
+    //1400px以上
+    @include breakpoint(pc){
+      color: $green;
+    }
+
+    @include breakpoint(tab){
+      color: $black;
+    }
+
+    @include breakpoint(sp){
+      color: $white;
+    }
+    // ====Media Queries====
+  }
+}

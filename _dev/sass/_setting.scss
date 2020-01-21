@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+//----------------------------------------------------------------
+//
+//  ブレークポイント設定
+//
+//----------------------------------------------------------------
+$lyt-cont:1400px;
+$bp-pc:$lyt-cont;
+$bp-tab:1024px;
+$bp-sp:750px;
+
+
+//----------------------------------------------------------------
+//
+//  Mixin
+//
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+// メディアクエリー記述
+//----------------------------------------------------------------
+@mixin breakpoint($point){
+
+  @if $point == full{
+    @media screen and (max-width:$bp-pc + 40px){
+      @content;
+    }
+  }
+
+  @else if $point == pc{
+    @media screen and (max-width:$bp-pc - 1px){
+      @content;
+    }
+  }
+
+  @else if $point == tab{
+    @media screen and (max-width:$bp-tab - 1px){
+      @content;
+    }
+  }
+
+  @else if $point == sp{
+    @media screen and (max-width:$bp-sp - 1px){
+      @content;
+    }
+  }
+
+  @else{
+    @media screen and (max-width:$point){
+      @content;
+    }
+  }
+}
+
+
+//----------------------------------------------------------------
+// clearfix
+//----------------------------------------------------------------
+@mixin clearfix{
+  &:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
